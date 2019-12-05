@@ -1,5 +1,6 @@
 package com.example.matchamenueadmin
 
+import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +28,13 @@ class login : AppCompatActivity() {
             val userGet = user.get()
             Toast.makeText(this,userGet.result.toString(), Toast.LENGTH_LONG).show()
             //saveUidShared(user.uid)
+
+            val sharedPreferences = getSharedPreferences("MatchaMenuAdmin", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+
+            editor.putString("uid",user.uid)
+            editor.commit()
+
         } catch (err: Error) {
             Toast.makeText(this,"¡Correo o usuario no encontrado!", Toast.LENGTH_LONG).show()
         }
