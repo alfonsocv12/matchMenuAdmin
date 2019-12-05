@@ -30,7 +30,10 @@ class create : AppCompatActivity() {
             uid?.let {
                 db.collection("restaurant").document(it).get()
                     .addOnCompleteListener {
-                        Toast.makeText(this, it.getResult().toString(), Toast.LENGTH_LONG).show()
+                        val result = it.getResult()
+                        result?.let {
+                            Toast.makeText(this, result.get("menu").toString(), Toast.LENGTH_LONG).show()
+                        }
                     }
             }
         }
