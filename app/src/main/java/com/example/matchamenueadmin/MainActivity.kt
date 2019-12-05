@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val elements = ArrayList<String>()
 
+
         try {
             db.collection("restaurant")
                 .whereEqualTo("id",uid)
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnSuccessListener { docs ->
                     for (doc in docs!!) {
                         elements.add(doc.getString("name").toString())
+                        Toast.makeText(this, doc.getString("name").toString(), Toast.LENGTH_LONG).show()
                     }
                     dishList.adapter = ArrayAdapter(this, R.layout.dish_list,elements)
                 }
