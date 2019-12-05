@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun itemBtnAction(){
-        btnNewItem.setOnClickListener {
+        btnCreate.setOnClickListener {
             startActivity(Intent(this, create::class.java))
         }
     }
