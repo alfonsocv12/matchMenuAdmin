@@ -24,24 +24,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, create::class.java))
         }
         val sharedPreferences = getSharedPreferences("MatchaMenuAdmin", Context.MODE_PRIVATE)
-        var uid = sharedPreferences.getString("uid","")
-
-        val elements = ArrayList<String>()
-
-
-        try {
+        var uid = sharedPreferences.getString("uid", "")
+        uid?.let {
             db.collection("restaurant")
-                .whereEqualTo("id",uid)
+                .document(it)
                 .get()
-                .addOnSuccessListener { docs ->
-                    for (doc in docs!!) {
-                        elements.add(doc.getString("name").toString())
-                        Toast.makeText(this, doc.getString("name").toString(), Toast.LENGTH_LONG).show()
-                    }
-                    dishList.adapter = ArrayAdapter(this, R.layout.dish_list,elements)
+                .addOnSuccessListener {
+                    dishList.adapter = ArrayAdapter(this, R.layout.dish_list, it.name)
                 }
-        } catch (err: Error) {
-            Toast.makeText(this, "¡Ups! No tienes platillos en tu menú", Toast.LENGTH_LONG).show()
         }
 
     }
