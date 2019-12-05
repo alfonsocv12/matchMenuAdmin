@@ -16,7 +16,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        itemBtnAction()
+    }
 
+    private fun itemBtnAction(){
+        btnCreate.setOnClickListener {
+            startActivity(Intent(this, create::class.java))
+        }
         val sharedPreferences = getSharedPreferences("MatchaMenuAdmin", Context.MODE_PRIVATE)
         var uid = sharedPreferences.getString("uid","")
 
