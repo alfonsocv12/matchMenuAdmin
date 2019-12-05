@@ -24,9 +24,15 @@ class login : AppCompatActivity() {
 
     private  fun getUser(email: String, password: String){
         try {
-            val user = db.collection("restaurant").whereEqualTo("email",email).whereEqualTo("password",password)
-            val userGet = user.get()
-            Toast.makeText(this,userGet.result.toString(), Toast.LENGTH_LONG).show()
+            val user = db.collection("restaurant")
+                .whereEqualTo("email",email)
+                .whereEqualTo("password",password)
+                .get()
+                .addOnSuccessListener { docs ->
+                    for (doc in docs!!) {
+                        Toast.makeText(this, doc.id, Toast.LENGTH_LONG).show()
+                    }
+                }
             //saveUidShared(user.uid)
 
             val sharedPreferences = getSharedPreferences("MatchaMenuAdmin", Context.MODE_PRIVATE)
