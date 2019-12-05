@@ -4,4 +4,5 @@
     <string name="password">******</string>
     <string name="login">Iniciar Sesión</string>
     <string name="developed">Desarrollado por Dragones Sicilianos</string>
+    <string name="create_dish">Nuevo Platillo</string>
 </resources>

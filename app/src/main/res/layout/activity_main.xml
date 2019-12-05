@@ -4,26 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/colorMatchaAdminBackgorund"
+    tools:context=".MainActivity" >
 
     <Button
-        android:id="@+id/btnNewItem"
+        android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text="new item"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/colorWhite"
+        android:text="@string/create_dish"
+        android:textColor="@color/colorMatchaAdminBackgorund"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/lvPlatillos" />
 
     <ListView
-        android:id="@+id/songsList"
-        android:layout_width="420dp"
-        android:layout_height="592dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/lvPlatillos"
+        android:layout_width="409dp"
+        android:layout_height="429dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewItem" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

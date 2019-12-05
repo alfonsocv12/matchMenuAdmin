@@ -34,6 +34,7 @@ class login : AppCompatActivity() {
                 .addOnSuccessListener { docs ->
                     for (doc in docs!!) {
                         //Toast.makeText(this, doc.getString("email"), Toast.LENGTH_LONG).show()
+                        editor.putString("uid",doc.id)
                         editor.putString("email",doc.getString("email"))
                         editor.commit()
                     }
