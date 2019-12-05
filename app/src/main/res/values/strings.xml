@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">matchamenueAdmin</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">******</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="developed">Desarrollado por Dragones Sicilianos</string>
 </resources>
