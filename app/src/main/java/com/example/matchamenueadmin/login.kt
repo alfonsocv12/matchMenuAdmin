@@ -4,9 +4,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import kotlin.math.log
+import kotlinx.android.synthetic.main.activity_login.*
 
 class login : AppCompatActivity() {
 
@@ -16,12 +15,17 @@ class login : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        btnLogin.setOnClickListener {
+            getUser(etEmail.text.toString(),etPass.text.toString())
+        }
+
     }
 
     private  fun getUser(email: String, password: String){
         try {
-            var user = db.collection("restaurant").whereEqualTo("email",email).whereEqualTo("password",password)
-            Toast.makeText(this,user.toString(), Toast.LENGTH_LONG).show()
+            val user = db.collection("restaurant").whereEqualTo("email",email).whereEqualTo("password",password)
+            val userGet = user.get()
+            Toast.makeText(this,userGet.result.toString(), Toast.LENGTH_LONG).show()
             //saveUidShared(user.uid)
         } catch (err: Error) {
             Toast.makeText(this,"¡Correo o usuario no encontrado!", Toast.LENGTH_LONG).show()
