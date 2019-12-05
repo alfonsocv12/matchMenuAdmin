@@ -6,6 +6,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import kotlin.math.log
 
 class login : AppCompatActivity() {
 
@@ -20,6 +21,7 @@ class login : AppCompatActivity() {
     private  fun getUser(email: String, password: String){
         try {
             var user = db.collection("restaurant").whereEqualTo("email",email).whereEqualTo("password",password)
+            Toast.makeText(this,user.toString(), Toast.LENGTH_LONG).show()
             //saveUidShared(user.uid)
         } catch (err: Error) {
             Toast.makeText(this,"¡Correo o usuario no encontrado!", Toast.LENGTH_LONG).show()
