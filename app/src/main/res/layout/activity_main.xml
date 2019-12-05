@@ -18,12 +18,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dishList" />
+        app:layout_constraintTop_toBottomOf="@+id/lvDishList" />
 
     <ListView
-        android:id="@+id/dishList"
+        android:id="@+id/lvDishList"
         android:layout_width="409dp"
         android:layout_height="621dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCreate" />
