@@ -1,6 +1,7 @@
 package com.example.matchamenueadmin
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -43,7 +44,8 @@ class create : AppCompatActivity() {
                                 )
                                 db.collection("restaurant").document(uid).set(menuListo, SetOptions.merge())
                                     .addOnSuccessListener {
-                                        Toast.makeText(this, "Listo", Toast.LENGTH_LONG).show()
+                                        Toast.makeText(this, "Se agrego nuevo platillo", Toast.LENGTH_LONG).show()
+                                        startActivity(Intent(this, MainActivity::class.java))
                                     }
                                     .addOnCanceledListener {
                                         Toast.makeText(this, "no entro", Toast.LENGTH_LONG).show()
