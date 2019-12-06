@@ -36,7 +36,9 @@ class MainActivity : AppCompatActivity() {
         val adapter = DishAdapter(this, R.layout.dish_list, dishList)
         lvDishList.adapter = adapter
         uid?.let {
-            db.collection("restaurant").document(it).get()
+            db.collection("restaurant")
+                .document("RFpbvqc6AVR7Qsmfn52E") //TODO: No guarda bien los sharedpreferences
+                .get()
                 .addOnCompleteListener {
                     val result = it.getResult()
                     result?.let {
